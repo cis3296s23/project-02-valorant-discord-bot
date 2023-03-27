@@ -9,3 +9,6 @@ def handle_response(message) -> str:
 
     if p_message == 'help':
         return 'Currently only hello world, shop and help are the only responding messages'
+    
+    if p_message == 'yoyoyo':
+        return 'christian did some work!'
