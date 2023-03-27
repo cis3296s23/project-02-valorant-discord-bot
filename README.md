@@ -1,5 +1,5 @@
 # Project Name
-Put here a short paragraph describing your project. 
+Welcome to the all in one Valorant Discord Bot. Using this bot will allow you to get information from valorant without having to open the application. Once everything it implemented you should be able to view your personal items from the store, view your match history, get Valorant news and more. 
 Adding an screenshot or a mockup of your application in action would be nice.  
 
 ![This is a screenshot.](images.png)
