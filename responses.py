@@ -12,3 +12,6 @@ def handle_response(message) -> str:
     
     if p_message == 'agent':
         return 'Not yet implemented. This feature will detail in-depth information on an Agent\'s utilities. The command will likely follow as e.g. \'agent viper\''
+    
+    if p_message == 'christian':
+        return 'I hope this commit works!'
