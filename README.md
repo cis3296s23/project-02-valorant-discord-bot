@@ -1,8 +1,7 @@
 # Val Discord Bot
 Welcome to the all in one Valorant Discord Bot. Using this bot will allow you to get information from valorant without having to open the application. Once everything it implemented you should be able to view your personal items from the store, view your match history, get Valorant news and more. 
-Adding an screenshot or a mockup of your application in action would be nice.  
 
-![This is a screenshot.](images.png)
+![This is a screenshot.](![image](https://user-images.githubusercontent.com/111989490/228278115-c81e9f9e-a179-406c-a626-16754eda2149.png))
 # How to run
 Provide here instructions on how to use your application.   
 - Download the latest release from the right hand side of Github.
