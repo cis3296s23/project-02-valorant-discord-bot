@@ -1,3 +1,4 @@
+import requests
 import discord
 from discord.ext import commands
 
@@ -7,10 +8,12 @@ class agents(commands.Cog):
 
     @commands.command()
     async def agent(self, ctx, arg):
-        if arg == '':
-            await ctx.send("No argument supplied")
-        if arg == 'sova':
-            await ctx.send("Sova")
+        r = requests.get("https://valorant-api.com/v1/agents")
+        print(r.status_code)
+        print(r.text)
+        for entry in r.json()['data']:
+            if entry['displayName'] == arg:
+                await ctx.send(entry['uuid'])
 
 async def setup(client):
     await client.add_cog(agents(client))
