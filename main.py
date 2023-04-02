@@ -13,7 +13,7 @@ async def load():
 
 async def main():
     await load()
-    await client.start('MTA4NDc3NzAyMjY5OTYwNjA3OA.GaixxP.jGGvXEUOO_-_qltYNi1VCDGFx5gnQUqSqNwMyo')
+    await client.start('')
 
 @client.event
 async def on_ready():
