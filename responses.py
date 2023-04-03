@@ -1,5 +1,18 @@
+import requests
+
 def handle_response(message) -> str:
     p_message = message.lower()
+
+    #Patch note commands
+    if p_message == 'patchnotes':
+        url = ("https://playvalorant.com/page-data/en-us/news/game-updates/page-data.json")
+        data = requests.get(url).json()
+
+        for a in reversed(data["result"]["pageContext"]["data"]["articles"]):
+            if "Patch Notes" in a["title"]:
+                patch_notes_url = "https://playvalorant.com" + a["url"]["url"]
+                
+        return(patch_notes_url)
 
     if p_message == 'hello world':
         return 'Hello human'
