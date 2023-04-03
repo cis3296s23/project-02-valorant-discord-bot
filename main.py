@@ -1,6 +1,8 @@
 import discord
 import asyncio
+import keepToken
 import os
+
 from discord.ext import commands
 
 intents = discord.Intents.all()
@@ -13,7 +15,13 @@ async def load():
 
 async def main():
     await load()
-    await client.start('MTA4NDc3NzAyMjY5OTYwNjA3OA.GKqz0c.3AMh905UuqN5VhqGynEpybQocRUQGcnHdePgdI')
+    await client.start(keepToken.token) #for this to work for you please see intructions below
+    '''
+        please make a keepToken.py file, and just put in 'token = "enter the discord token here"'
+        put in your .gitignore file
+            "keepToken.py"
+        now you can commit your main everytime without having the token reset and you'll be able to start the bot normally
+    '''
 
 @client.event
 async def on_ready():
