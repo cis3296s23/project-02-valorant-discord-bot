@@ -13,7 +13,7 @@ class patchNotes(commands.Cog):
 
         for a in reversed(data["result"]["pageContext"]["data"]["articles"]):
             if "Patch Notes" in a["title"]:
-                patch_notes_url = "https://playvalorant.com" + a["url"]["url"]
+                patch_notes_url = "https://playvalorant.com/en-us" + a["url"]["url"]
         await ctx.send(patch_notes_url)
     
 async def setup(client):
