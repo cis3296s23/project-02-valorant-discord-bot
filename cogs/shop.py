@@ -4,9 +4,6 @@ import os
 import valorant
 from discord.ext import commands
 
-KEY = os.environ["VALPY-KEY"]
-client = valorant.Client(KEY, locale=None)
-
 
 class shop(commands.Cog):
     def __init__(self, client):
