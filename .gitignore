@@ -2,4 +2,4 @@ images.png
 __pycache__
 __pycache__/
 keepToken.py
-auth.py
+auth.txt
