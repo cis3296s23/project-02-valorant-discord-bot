@@ -8,7 +8,7 @@ class skinSearch(commands.Cog):
 
     @commands.command()
     async def skin(self, ctx, arg1, arg2):
-            r = requests.get("https://valorant-api.com/v1/weapons")
+            r = requests.get("https://valorant-api.com/v1/weapons/skins")
             print(r.status_code)
             print(arg1)
             print(arg2)
@@ -17,12 +17,13 @@ class skinSearch(commands.Cog):
             print(arg1)
             for entry in r.json()['data']:
                 if entry['displayName'] == arg1:
-                    await ctx.send("The skin has been found")
-                    displayIcon = entry['display']
+                    #await ctx.send("The skin has been found")
+                    displayIcon = entry['displayIcon']
                     break
             embed = discord.Embed(title=arg1, colour = discord.Colour.random())
-            embed.set_thumbnail(url=displayIcon)
-            ctx.send(embed=embed)
+            embed.set_image(url=displayIcon)
+            await ctx.send(embed=embed)
+            #await ctx.send(displayIcon)
 
 async def setup(client):
     await client.add_cog(skinSearch(client))
