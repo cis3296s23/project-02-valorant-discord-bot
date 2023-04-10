@@ -21,8 +21,9 @@ class agents(commands.Cog):
                     embed.set_thumbnail(url=entry['displayIconSmall'])
                     for ability in entry['abilities']:
                         print(ability['displayName'])
-                        #embed.add_field(name= ability['displayName'])
+                        embed.add_field(name= ability['displayName'], value = ability['description'], inline = False)
                     break
+                    
             await ctx.send(embed=embed)
                 #await ctx.send(entry['uuid'])
         
