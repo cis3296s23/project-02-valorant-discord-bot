@@ -2,3 +2,5 @@ images.png
 __pycache__
 __pycache__/
 keepToken.py
+cogs/__pycache__/
+cogs/_pycache_/
