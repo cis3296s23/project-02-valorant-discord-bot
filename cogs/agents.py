@@ -12,7 +12,13 @@ class agents(commands.Cog):
         print(r.status_code)
         print(arg)
         if arg == 'list':
-            await ctx.send("List not yet implemented")
+            print('entered list')
+            nameList = []
+            for entry in r.json()['data']:
+                print(entry['displayName'])
+                nameList.append(entry['displayName'])
+            embed = discord.Embed(title='Agents', description = nameList, colour = discord.Colour.brand_red)
+            await ctx.send(embed = embed)
         else:
             for entry in r.json()['data']:
                 if entry['displayName'] == arg:
