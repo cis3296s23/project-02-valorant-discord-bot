@@ -12,22 +12,17 @@ class agents(commands.Cog):
         print(r.status_code)
         print(arg)
         if arg == 'list':
-            print('entered list')
             nameList = []
             for entry in r.json()['data']:
                 print(entry['displayName'])
                 nameList.append(entry['displayName'])
-            print('loop exited')
             nameList = '\n'.join(nameList)
-            print('test print prev')
             embed = discord.Embed(title='Agents', description = 'List of playable agents', colour = discord.Colour.brand_red())
             embed.add_field(name="List of agents", value=nameList)
-            print('test print')
             await ctx.send(embed = embed)
         else:
             for entry in r.json()['data']:
                 if entry['displayName'] == arg:
-                    #displayIcon = entry['displayIconSmall']
                     embed = discord.Embed(title=arg, description = entry['description'], colour = discord.Colour.random())
                     embed.set_thumbnail(url=entry['displayIconSmall'])
                     for ability in entry['abilities']:
@@ -36,7 +31,6 @@ class agents(commands.Cog):
                     break
                     
             await ctx.send(embed=embed)
-                #await ctx.send(entry['uuid'])
         
 
 async def setup(client):
