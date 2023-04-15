@@ -16,13 +16,14 @@ class agents(commands.Cog):
         else:
             for entry in r.json()['data']:
                 if entry['displayName'] == arg:
-                    uuid = entry['uuid']
-                    displayIcon = entry['displayIconSmall']
-                    description = entry['description']
-
+                    #displayIcon = entry['displayIconSmall']
+                    embed = discord.Embed(title=arg, description = entry['description'], colour = discord.Colour.random())
+                    embed.set_thumbnail(url=entry['displayIconSmall'])
+                    for ability in entry['abilities']:
+                        print(ability['displayName'])
+                        embed.add_field(name= ability['displayName'], value = ability['description'], inline = False)
                     break
-            embed = discord.Embed(title=arg, description = description, colour = discord.Colour.random())
-            embed.set_thumbnail(url=displayIcon)
+                    
             await ctx.send(embed=embed)
                 #await ctx.send(entry['uuid'])
         
