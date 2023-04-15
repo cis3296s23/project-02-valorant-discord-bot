@@ -2,7 +2,6 @@ import discord
 import asyncio
 import keepToken
 import os
-
 from discord.ext import commands
 
 intents = discord.Intents.all()

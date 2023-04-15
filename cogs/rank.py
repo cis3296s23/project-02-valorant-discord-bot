@@ -2,7 +2,7 @@ import requests
 import discord
 from discord.ext import commands
 
-class ranks(commands.Cog):
+class rankCommand(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -29,4 +29,4 @@ class ranks(commands.Cog):
         '''
 
 async def setup(client):
-    await client.add_cog(ranks(client))
+    await client.add_cog(rankCommand(client))
