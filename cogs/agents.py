@@ -17,7 +17,12 @@ class agents(commands.Cog):
             for entry in r.json()['data']:
                 print(entry['displayName'])
                 nameList.append(entry['displayName'])
-            embed = discord.Embed(title='Agents', description = nameList, colour = discord.Colour.brand_red)
+            print('loop exited')
+            nameList = '\n'.join(nameList)
+            print('test print prev')
+            embed = discord.Embed(title='Agents', description = 'List of playable agents', colour = discord.Colour.brand_red())
+            embed.add_field(name="List of agents", value=nameList)
+            print('test print')
             await ctx.send(embed = embed)
         else:
             for entry in r.json()['data']:
