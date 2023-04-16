@@ -19,14 +19,15 @@ class rankCommand(commands.Cog):
             print(f"Request failed with status code: {r.status_code}")
             await ctx.send("Your entered region, name, or ID is incorrect, please try again!") #ask the user to try again
 
-        '''
-            TODO:
-                Make it so the user is presented with a better output and not just text
-                    - meaning give icons per rank
-                    - maybe implement a bar to show the percentage of RR from 0-100%
-                    - add fields to make it more clear how the user should type in the arguments for the command to work
-                    - update help command to explain how to do this properly
-        '''
+
+        #TODO
+        #what ima do, I am going to seperate the data and have a rank string and a RR string
+        # I am going to do one if to check for 1, 2, 3
+        #then check for name iron, bronze, silver, etc..
+        #then give them the logo of the rank and embed that
+        #if non of those works, the only rank that has no number is Radiant, so display radiant icon
+        #then display a bar with percentage of the RR 0-100
+
 
 async def setup(client):
     await client.add_cog(rankCommand(client))
