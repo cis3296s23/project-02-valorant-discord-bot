@@ -11,6 +11,7 @@ class rankCommand(commands.Cog):
         url = ("https://api.kyroskoh.xyz/valorant/v1/mmr/" + region + "/" + riotName + "/" + riotId) #url for the API im using
         r = requests.get(url) #get the result of the API request
 
+        #working code for now
         if r.status_code == 200: #if the request from API was successful
             data = r.text #parse the text
             print(data)
@@ -19,7 +20,10 @@ class rankCommand(commands.Cog):
             print(f"Request failed with status code: {r.status_code}")
             await ctx.send("Your entered region, name, or ID is incorrect, please try again!") #ask the user to try again
 
-
+        dataList = data.split('-') #split into a list with list[0] = rank , and list[1] = RR
+        rank = dataList[0]
+        rr = dataList[1]
+        
         #TODO
         #what ima do, I am going to seperate the data and have a rank string and a RR string
         # I am going to do one if to check for 1, 2, 3
