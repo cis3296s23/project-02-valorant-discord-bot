@@ -23,7 +23,73 @@ class rankCommand(commands.Cog):
         dataList = data.split('-') #split into a list with list[0] = rank , and list[1] = RR
         rank = dataList[0]
         rr = dataList[1]
-        
+
+        rank.strip() #remove spaces
+        rr.strip() #remove spaces
+
+        rankDataList = rank.split() #split on a space character to get rank name and number
+        rankName = rankDataList[0] 
+        rankNumber = rankDataList[1]
+        rankFile = "" #this variable will be used for a check 1-3 on what rank they are in the category (we will combine all neccessary information later into this string to be read for a scope check)
+
+        #   RR is formatted by everything being together so we do not need to format 
+        #   it we can just iterate through it till we hit the first 'R' in "RR" to get the number we want
+
+        if (rankName == "Iron"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Iron")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Bronze"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Bronze")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Silver"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Silver")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Gold"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Gold")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Platinum"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Platinum")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Diamond"):
+            print("users rank = iron")
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Diamond")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Ascendant"):
+            print("users rank = iron")   
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Ascendant")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Immortal"):
+            print("users rank = iron") 
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Immortal")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+        if (rankName == "Radiant"):
+            print("users rank = iron") 
+            rankFile = rankName + "_" + rankNumber + "_Rank.png" #formatting for the file search
+            embed = discord.Embed(title="Radiant")
+            await ctx.send("You rank is: " + rankName + " " + rankNumber, file = discord.File(rankFile) , embed = embed)
+
+
         #TODO
         #what ima do, I am going to seperate the data and have a rank string and a RR string
         # I am going to do one if to check for 1, 2, 3
