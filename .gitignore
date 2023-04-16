@@ -4,5 +4,9 @@ __pycache__/
 keepToken.py
 cogs/__pycache__/
 cogs/_pycache_/
+*.pyc
+*.cache
+*._pycache_
+*.__pycache__
 
 
