@@ -10,3 +10,5 @@ cogs/_pycache_/
 *.__pycache__
 
 
+cogs/__pycache__/agents.cpython-310.pyc
+cogs/__pycache__/patchNotes.cpython-310.pyc
