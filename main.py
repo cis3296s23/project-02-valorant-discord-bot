@@ -2,7 +2,6 @@ import discord
 import asyncio
 import keepToken
 import os
-
 from discord.ext import commands
 
 intents = discord.Intents.all()
@@ -28,5 +27,3 @@ async def on_ready():
     print(f'{client.user} is now running!')
 
 asyncio.run(main())
-
-#Test commit
