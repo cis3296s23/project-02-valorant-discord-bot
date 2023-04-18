@@ -1,10 +1,21 @@
 import discord
 import random
+import requests
 from discord.ext import commands
 
 class recommend(commands.Cog):
     def __init__(self, client):
         self.client = client
+
+    #Function to retrieve agent data for embedding
+    def fetch_agent_data(self, agent_name):
+        url = "https://valorant-api.com/v1/agents"
+        response = requests.get(url)
+        agents_data = response.json()["data"]
+
+        for agent in agents_data:
+            if agent["displayName"].lower() == agent_name.lower():
+                return agent
 
     
     # #Function to check if each response the user types is a valid option and if not to re-ask the question
@@ -22,7 +33,6 @@ class recommend(commands.Cog):
     async def recommend(self, ctx):
         await ctx.send("Welcome to the Valorant Agent Recommender!")
         await ctx.send("Please answer the following questions to find the best agent for you.\n\n")
-        await ctx.send(" ")
 
         #List of questions
         questions = [
@@ -82,12 +92,12 @@ class recommend(commands.Cog):
         }
 
         #Loop through each of the questions and based on each response, increment those agents' scores
-        for question in questions:
-            await ctx.send(question["question"])
+        for i in range(len(questions)):
+            await ctx.send(str(i+1) + ". " + questions[i]["question"])
             answer = await self.client.wait_for("message", check=lambda message: message.author == ctx.author)
 
-            if answer.content.lower() in question:
-                affected_agents = question[answer.content.lower()]
+            if answer.content.lower() in questions[i]:
+                affected_agents = questions[i][answer.content.lower()]
                 for agent in affected_agents:
                     agents[agent] += 1
         
@@ -97,7 +107,20 @@ class recommend(commands.Cog):
         top_agents = [agent for agent, score in agents.items() if score == max_score]
 
         recommended_agent = random.choice(top_agents)
-        await ctx.send(f"Based on your answers, you should try playing as {recommended_agent}!")
+
+        #Embedding the agent data for the client to send
+        agent_data = self.fetch_agent_data(recommended_agent)
+        if agent_data:
+            embed = discord.Embed(
+                title=agent_data["displayName"],
+                description=agent_data["description"],
+                color=discord.Color.blue(),
+            )
+            embed.set_thumbnail(url=agent_data["displayIcon"])
+            embed.add_field(name="Role", value=agent_data["role"]["displayName"], inline=False)
+            await ctx.send(f"Based on your answers, you should try playing as {recommended_agent}!", embed=embed)
+        else:
+            await ctx.send(f"Based on your answers, you should try playing as {recommended_agent}!")
         
 async def setup(client):
     await client.add_cog(recommend(client))
