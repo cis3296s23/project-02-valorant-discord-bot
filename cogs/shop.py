@@ -2,7 +2,18 @@ import requests
 import discord
 import os
 import valorant
+import re
+import json
 from discord.ext import commands
+
+
+with open("cogs/auth.json", "r") as f:
+    config = json.load(f)
+    username = config["riotUsername"]
+    riotPassword = config["riotPassword"]
+    region = config["region"]
+    token = config["riotToken"]
+
 
 
 class shop(commands.Cog):
@@ -12,6 +23,7 @@ class shop(commands.Cog):
     @commands.command()
     async def shop(self, ctx):
 
+        
 
 
 
