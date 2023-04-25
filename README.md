@@ -39,6 +39,6 @@ Follow this project board to know the latest status of the project: [https://git
 - Use this github repository: ... 
 - Specify what branch to use for a more stable release or for cutting edge development.  
 - Use VSC or other IDEs supporting Python (PyCharm, atom, PyDev, etc...)
-- Necessary libraries include: valorant, requests, discord
+- Necessary libraries include: valorant, requests, discord, BeautifulSoup
 - What file and target to compile and run. 
 - What is expected to happen when the app start. 
