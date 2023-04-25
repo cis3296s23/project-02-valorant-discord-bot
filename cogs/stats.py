@@ -13,8 +13,8 @@ class stats(commands.Cog):
         url = ("https://blitz.gg/valorant/profile/"+riotName+"-"+riotTag)
         print('Here')
         r = requests.get(url)
-        if(r.statuscode == 404):
-            print(riotName+riotTag+ "is not a valid input")
+        #if(r.statuscode == 404):
+        #    print(riotName+riotTag+ "is not a valid input")
 
         soup = BeautifulSoup(r.content, 'lxml')
 
