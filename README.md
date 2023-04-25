@@ -21,6 +21,7 @@ Provide here instructions on how to use your application.
 pip install discord.py
 pip install requests
 pip install valorant
+pip install beautifulsoup4
 ```
 - Within the createToken.py file adjust the TOKEN field to use the token of your bot's token.
 ```
