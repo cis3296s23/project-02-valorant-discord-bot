@@ -25,7 +25,7 @@ class stats(commands.Cog):
 
         #Formats the above into an embed to be printed on Discord
         embed = discord.Embed(title=riotName+"'s Aim Stats", description="Over the last 20 Matches...", colour = discord.Colour.blue())
-        #embed.set_thumbnail(url='https://cdn-icons-png.flaticon.com/512/1692/1692908.png')
+        embed.set_thumbnail(url='https://cdn-icons-png.flaticon.com/512/1692/1692908.png')
         embed.add_field(name= "Head Shots:", value = headShots, inline = False)
         embed.add_field(name= "Body Shots:", value = bodyShots, inline = False)
         embed.add_field(name= "Leg Shots:", value = legShots, inline = False)
