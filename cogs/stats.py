@@ -11,13 +11,10 @@ class stats(commands.Cog):
     async def aim(self, ctx, riotName:str,riotTag:str):
         #Formats input from user and creates url with info
         url = ("https://blitz.gg/valorant/profile/"+riotName+"-"+riotTag)
-        print('Here')
         r = requests.get(url)
-        #if(r.statuscode == 404):
-        #    print(riotName+riotTag+ "is not a valid input")
 
         soup = BeautifulSoup(r.content, 'lxml')
-
+        print("Here")
         #The following will scrape the shot percentages from the user profile
         headShots = soup.find(attrs = {'class':'type-body2-form--active stat-value body-head'}).getText()
         bodyShots = soup.find(attrs ={'class':'type-body2-form--active stat-value body-chest'}).getText()
@@ -51,7 +48,6 @@ class stats(commands.Cog):
         for values in value:
             #.string extension will get the value in the tree and not the other stuff in the HTML Tree
             arr.append(values.string)
-             
         embed = discord.Embed(title='Current Competitive Season Stats', description = 'Stats of player: '+riotName, colour = discord.Colour.random())
         embed.set_thumbnail(url='https://img.icons8.com/color/512/valorant.png')
         embed.add_field(name= "Damage/Round: ", value = arr[0], inline = False)
